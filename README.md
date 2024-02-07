@@ -27,11 +27,6 @@ The Responsible AI dashboard provides a unified interface to core open-source to
 
 ![Responsible AI Dashboard Tools](img/Dashboard_comp.jpeg)
 
-### Responsible AI Dashboard Components
-
-The Responsible AI Dashboard includes model debugging and business decision-making tools that can be composed into an end-to-end assessment workflow. These components empower AI practitioners to thoroughly evaluate their models and ensure adherence to ethical guidelines.
-
-![Responsible AI Dashboard Components](img/rai-dashboard-components.JPG)
 
 
 ### Microsoft Responsible AI Team
