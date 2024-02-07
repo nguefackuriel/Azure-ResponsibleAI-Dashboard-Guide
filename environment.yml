@@ -1,0 +1,48 @@
+name: RAI_DASHBOARD
+channels:
+  - conda-forge
+  - defaults
+  - anaconda
+dependencies:
+  - python=3.8
+  - pip
+  - pip:
+    - ipykernel
+    - azureml-responsibleai
+    - azure-common
+    - azure-ai-ml
+    - azure-identity
+    - mlflow
+    - azureml-mlflow
+    - mltable
+    - azureml_dataprep
+    - azureml_dataprep_rslex
+    - responsibleai
+    - raiwidgets
+    - numpy>=1.17.2,<1.24.0
+    - fastparquet
+    - pyarrow==5.0.0
+    - shap 
+    - catboost
+    - optuna
+    - lightgbm
+    - xgboost
+    - matplotlib
+    - seaborn
+    - numba<=0.55.2
+    - pandas>=0.25.1,<2.0.0
+    - pyarrow>=10.0.1
+    - scikit-learn>=0.22.1,<1.1 # See PR 1429 about upper bound
+    - scipy>=1.4.1
+    - ml-wrappers
+    - ipywidgets>=8.0.7 
+    - jupyterlab-widgets>=3.0.8 
+    - widgetsnbextension>=4.0.8
+    - keyring>=4.1.1
+    - keyrings.alt
+    - azure-cli
+    - azure-core
+    - azureml-core
+    - python-dotenv
+    - pytest
+
