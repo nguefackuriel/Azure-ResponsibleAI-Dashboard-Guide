@@ -1,6 +1,7 @@
 azureml-responsibleai
 azure-common
 azure-ai-ml
+azure-cli
 azure-identity
 mlflow
 azureml-mlflow
