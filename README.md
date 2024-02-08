@@ -54,7 +54,7 @@ Microsoft's ResponsibleAI initiative is supported by a devoted group of people w
    cd ResponsibleAI-Dashboard-Guide/lib
    ```
 
-2. **Create Conda Environment:**
+2. **Create Conda Environment and install Dependencies:**
    ```
    conda env create -f environment.yml -n RAI_DASHBOARD
    ```
@@ -64,10 +64,24 @@ Microsoft's ResponsibleAI initiative is supported by a devoted group of people w
    conda activate RAI_DASHBOARD
    ```
 
-4. **Install Dependencies:**
+4. **Connect to your Azure account:**
    ```
-   pip install -r requirements.txt
+   az login --use-device-code
    ```
+5. **Install the ml extension:**
+   ```
+   az extension add -n ml
+   ```
+6. **Create AML workspace by entering the following:**
+   ```
+   az ml workspace create - <<Name of the workspace>> -g <<Name of the Resource group>> -l <<Name of the location>>
+   ```
+7. **Set the environment defaults:**
+   ```
+   az configure --defaults group=<<Name of the Resource group>> workspace=<<Name of the workspace>> location=<<Name of the location>>
+   ```
+8. **Change the subscription id, the name of the resource group, and the workspace in the config.json file**
+
 
 Now, you have set up your local environment for Responsible AI. You can proceed with using the Responsible AI features in your project.
 
@@ -84,10 +98,31 @@ Now, you have set up your local environment for Responsible AI. You can proceed 
 
    ```
    cd lib
-   pip install -r requirements.txt
+   conda env create -f environment.yml -n RAI_DASHBOARD
+   conda init
+   eval "$(conda shell.bash hook)"
+   conda activate RAI_DASHBOARD
    ```
+This will install the required dependencies and activate the environment in your GitHub Codespace.
+3. **Connect to your Azure account:**
+   ```
+   az login --use-device-code
+   ```
+4. **Install the ml extension:**
+   ```
+   az extension add -n ml
+   ```
+5. **Create AML workspace by entering the following:**
+   ```
+   az ml workspace create - <<Name of the workspace>> -g <<Name of the Resource group>> -l <<Name of the location>>
+   ```
+6. **Set the environment defaults:**
+   ```
+   az configure --defaults group=<<Name of the Resource group>> workspace=<<Name of the workspace>> location=<<Name of the location>>
+   ```
+7. **Change the subscription id, the name of the resource group, and the workspace in the config.json file**
 
-   This will install the required dependencies in your GitHub Codespace.
+   
 
 Now, whether you're working on your local machine or remotely in GitHub Codespaces, you have successfully set up the environment for Responsible AI. You can proceed with using the features of Responsible AI in your project.
 
