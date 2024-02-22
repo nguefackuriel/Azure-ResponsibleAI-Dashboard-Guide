@@ -74,7 +74,7 @@ Microsoft's ResponsibleAI initiative is supported by a devoted group of people w
    ```
 6. **Create AML workspace by entering the following:**
    ```
-   az ml workspace create - <<Name of the workspace>> -g <<Name of the Resource group>> -l <<Name of the location>>
+   az ml workspace create -n <<Name of the workspace>> -g <<Name of the Resource group>> -l <<Name of the location>>
    ```
 7. **Set the environment defaults:**
    ```
@@ -114,7 +114,7 @@ This will install the required dependencies and activate the environment in your
    ```
 5. **Create AML workspace by entering the following:**
    ```
-   az ml workspace create - <<Name of the workspace>> -g <<Name of the Resource group>> -l <<Name of the location>>
+   az ml workspace create -n <<Name of the workspace>> -g <<Name of the Resource group>> -l <<Name of the location>>
    ```
 6. **Set the environment defaults:**
    ```
