@@ -8,7 +8,8 @@ import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.compose import make_column_selector as selector
-from xgboost import XGBClassifier
+from scipy.stats import trim_mean
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
@@ -29,19 +30,24 @@ def main(args):
     # Standardize numeric data by removing the mean and scaling to unit variance    
     numerical_selector = selector(dtype_include=np.number)    
     numerical_columns = numerical_selector(X_train)    
-    numerical_encoder = StandardScaler()    
+    numerical_encoder = StandardScaler()   
+
+        # Filling missing values in the training set with the 10% trim_mean of the column
+    for col in numerical_columns:
+        X_train[col].fillna(trim_mean(X_train[col], 0.1), inplace=True)
+
     
     # Create a preprocessor that will preprocess both numeric and categorical data    
     preprocessor = ColumnTransformer([    
                 ('categorical-encoder', categorial_encoder, categorical_columns),    
                 ('standard_scaler', numerical_encoder, numerical_columns)])    
     
-    xgb = make_pipeline(preprocessor, XGBClassifier(use_label_encoder=False,
-                        eval_metric='mlogloss'))
+    rf  = make_pipeline(preprocessor, RandomForestClassifier()) 
+
 
     print('Training model...') 
 
-    model = xgb.fit(X_train, y_train)  
+    model = rf.fit(X_train, y_train)
     
     # Save the model with mlflow    
     shutil.rmtree(args.model_output, ignore_errors=True)    
